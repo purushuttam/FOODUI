@@ -4,6 +4,7 @@ import {MenuItem} from 'primeng/api';
 
 import { ProductService } from 'src/app/services/productservice';
 import {Product} from 'src/app/models/product';
+import { AuthServiceService } from 'src/app/services/Auth/auth-service.service';
 
 @Component({
   selector: 'app-contents',
@@ -17,7 +18,11 @@ export class ContentsComponent {
   p3:Product= {id:"2",code:'213',name:'product 3',description:'description',price:123,quantity:12,inventoryStatus:'full',category:'12',image:'ff',rating:5}
   products: Product[]=[];
 
+ 
+
   ngOnInit() {
     this.products.push(this.p1)
+    console.log('conetents')
     }
+
 }

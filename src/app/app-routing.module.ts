@@ -6,12 +6,16 @@ import { ContentsComponent } from './components/contents/contents.component';
 const routes: Routes = [
   {
     path:'',
-    component:ContentsComponent
+    loadChildren:() => import('../app/components/contents/contents.module').then(m => m.ContentsModule)
+  },
+  {
+    path:'admin',
+    loadChildren:() => import('../app/admin/admin.module').then(m => m.AdminModule)
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

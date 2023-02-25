@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary navbar navbar-light"  style="background-color: #e3f2fd;">
   <div class="container-fluid">
     <a class="navbar-brand mr-auto" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,10 +12,13 @@
       </form>
       <ul class="navbar-nav ml-auto d-flex">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Login</a>
+          <a class="nav-link active" aria-current="page" [routerLink]="['login']">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Sign Up</a>
+          <a class="nav-link active" aria-current="page" [routerLink]="['signup']">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="['admin/account/login']">Admin</a>
         </li>
       </ul>
     </div>

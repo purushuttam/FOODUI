@@ -1,17 +1,35 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CustomerAuthGuard } from './Auth/customer-auth.guard';
+import { ContentsComponent } from './contents.component';
 import { RestrauntsComponent } from './restraunts/restraunts.component';
 
 const routes: Routes = [
   {
     path:'',
-    component:RestrauntsComponent
-  }
+    component:ContentsComponent,
+    children:[
+      {
+        path:'',
+        loadChildren: () => import('../contents/restraunts/restraunts.module').then(m => m.RestrauntsModule)
+      },
+      {
+        path:'signup',
+        loadChildren: () => import('../contents/signup/signup.module').then(m => m.SignupModule)
+      },
+      {
+        path:'login',
+        loadChildren: () => import('../contents/login/login.module').then(m => m.LoginModule),
+        canActivate:[CustomerAuthGuard]
+      }
+    ]
+  },
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 
-export class ContentsComponent{}
+export class ContentRoutingModule {}

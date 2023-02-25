@@ -7,27 +7,28 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContentsComponent } from './components/contents/contents.component';
 
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 import {CarouselModule} from 'primeng/carousel';
-import {ButtonModule} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
 import {InputTextModule} from 'primeng/inputtext';
 import {TabMenuModule} from 'primeng/tabmenu';
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    ContentsComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ProgressSpinnerModule,
     TabMenuModule,
-    ButtonModule,
     ToastModule,
     CarouselModule,
-    InputTextModule
+    InputTextModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
