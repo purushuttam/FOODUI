@@ -10,7 +10,7 @@ import { ContentsComponent } from './components/contents/contents.component';
 import {CarouselModule} from 'primeng/carousel';
 import {ButtonModule} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
-
+import {InputTextModule} from 'primeng/inputtext';
 import {TabMenuModule} from 'primeng/tabmenu';
 @NgModule({
   declarations: [
@@ -26,7 +26,8 @@ import {TabMenuModule} from 'primeng/tabmenu';
     TabMenuModule,
     ButtonModule,
     ToastModule,
-    CarouselModule
+    CarouselModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]
