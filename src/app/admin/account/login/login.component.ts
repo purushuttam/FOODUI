@@ -28,7 +28,7 @@ export class LoginComponent {
         console.log(response);
         if(response.resp){
           console.log(response.respObj)
-        this.router.navigate(['admin/restraunt/food/food-details/update'])
+        this.router.navigate(['admin/restraunt'])
         }
       },
       error: response => {

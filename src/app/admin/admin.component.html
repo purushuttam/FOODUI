@@ -1,4 +1,10 @@
-<p>admin works!</p>
-
-<router-outlet></router-outlet>
-
+<div>
+  <p>admin works!</p>
+  <p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
+    <h1 style="font-weight:normal">Left Sidebar</h1>
+    <p-menu [model]="items"></p-menu>
+  </p-sidebar>
+  <div class="admin-panel">
+    <!-- <router-outlet></router-outlet> -->
+  </div>
+</div>

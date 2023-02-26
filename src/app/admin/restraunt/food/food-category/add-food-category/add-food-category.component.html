@@ -1,1 +1,15 @@
-<p>add-food-category works!</p>
+<div>
+  <form action="" #myForm="ngForm">
+    <div>
+      <input type="text" placeholder="food_category_name" pInputText [(ngModel)]="foodCategory.food_category_name" name="food_category_name"/>
+    </div>
+    <div>
+      <input type="text" placeholder="description" pInputText [(ngModel)]="foodCategory.description" name="description"/>
+    </div>
+    <div>
+      <input type="text" placeholder="location" pInputText [(ngModel)]="foodCategory.location" name="location"/>
+    </div>
+    <p-button label="Click" (click)="onSubmit()"></p-button>
+  </form>
+</div>
+<h1>ffffffff</h1>

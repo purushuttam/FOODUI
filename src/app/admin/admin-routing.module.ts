@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 var routes: Routes = [
   {
-    path:'',
+    path:'d',
     loadChildren: () => import('./account/login/login.module').then(m => m.LoginModule)
   },
   {

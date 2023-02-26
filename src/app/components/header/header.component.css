@@ -6,3 +6,8 @@ nav{
   background-color: aqua;
   color: aquamarine;
 }
+.navbar
+{
+  background-color: rgb(164, 238, 185) !important;
+  border-radius: 20px;
+}
