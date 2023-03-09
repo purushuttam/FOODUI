@@ -1,0 +1,13 @@
+.action-button{
+  display: inline-block;
+  /* width: 100px; */
+}
+#outer
+{
+    width:100%;
+    text-align: center;
+}
+.inner
+{
+    display: inline-block;
+}

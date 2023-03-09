@@ -6,20 +6,19 @@ import { AuthServiceService } from 'src/app/services/Auth/auth-service.service';
 @Injectable({
   providedIn: 'root'
 })
-export class RestrauntAuthGuard implements CanActivate {
-  constructor(
-    private authservice:AuthServiceService,
-    private rouetr:Router){
+export class RoleGuard implements CanActivate {
+  constructor(private authService:AuthServiceService,private router:Router ){
 
   }
-  canActivate() {
-    if(this.authservice.isLoggedIn()){
-      return true;
-    }
-    else{
-      this.rouetr.navigate(['admin/account/login']);
+  canActivate(){
+    if(this.authService.HaveAcces()){
       return false;
     }
+    else{
+      this.router.navigate(['admin/account/login'])
+      return false;
+    }
+    return true;
   }
 
 }

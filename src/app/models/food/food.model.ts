@@ -1,3 +1,5 @@
+import { MenuItem } from "primeng/api";
+
 export interface FoodCategory {
   food_category_id: string;
   food_category_name: string;
@@ -22,5 +24,5 @@ export interface FoodDetails {
   created_on: string;
   created_by: string;
   updated_on: string;
-  updated_by: string;
+  updated_by: string | null;
 }

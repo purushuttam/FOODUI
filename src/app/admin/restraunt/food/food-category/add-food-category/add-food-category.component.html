@@ -1,15 +1,32 @@
-<div>
+<p-toast position="top-right"></p-toast>
+<div class="form">
   <form action="" #myForm="ngForm">
     <div>
-      <input type="text" placeholder="food_category_name" pInputText [(ngModel)]="foodCategory.food_category_name" name="food_category_name"/>
+      <span class="p-float-label form-input">
+        <input id="float-input" type="text" pInputText [(ngModel)]="foodCategory.food_category_name"
+          name="food_category_name">
+        <label for="float-input">Name</label>
+      </span>
+      <span class="p-float-label form-input">
+        <input id="float-input" type="text" pInputText [(ngModel)]="foodCategory.description" name="description">
+        <label for="float-input">Description</label>
+      </span>
+      <span class="p-float-label form-input">
+        <input id="float-input" type="text" pInputText [(ngModel)]="foodCategory.location" name="location">
+        <label for="float-input">Location</label>
+      </span>
+      <span>
+        <p-button class="p-float-label form-input" label="Save" (click)="onSubmit()"></p-button>
+      </span>
+    </div>
+    <!-- <div>
+      <label for="name"></label>
+      <input type="text" placeholder="description" pInputText [(ngModel)]="foodCategory.description"
+        name="description" />
     </div>
     <div>
-      <input type="text" placeholder="description" pInputText [(ngModel)]="foodCategory.description" name="description"/>
-    </div>
-    <div>
-      <input type="text" placeholder="location" pInputText [(ngModel)]="foodCategory.location" name="location"/>
-    </div>
-    <p-button label="Click" (click)="onSubmit()"></p-button>
+      <label for="name"></label>
+      <input type="text" placeholder="location" pInputText [(ngModel)]="foodCategory.location" name="location" />
+    </div> -->
   </form>
 </div>
-<h1>ffffffff</h1>

@@ -24,8 +24,4 @@ export interface RiderComplain {
   updated_on: string;
   updated_by: string;
 }
-export interface Response{
-  resp:string;
-  respObj:any;
-  respMsg:string
-}
+

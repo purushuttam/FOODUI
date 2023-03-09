@@ -11,8 +11,8 @@ export interface RestrauntMaster {
     country_code: string;
     mobile_no: string;
     email_id: string;
-    open_time: string;
-    close_time: string;
+    open_time: Date;
+    close_time: Date;
     is_active: boolean;
     created_on: string;
     created_by: string;

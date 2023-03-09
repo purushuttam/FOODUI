@@ -25,3 +25,7 @@ export interface OrderCancellation {
   is_food_prepared: boolean;
   cancellation_duration: string;
 }
+export interface UpdateOrderStatus {
+  order_id: string;
+  order_status: number;
+}

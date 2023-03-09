@@ -8,12 +8,15 @@ import { ButtonModule } from 'primeng/button';
 import { SlideMenuModule } from 'primeng/slidemenu';
 import { SidebarModule } from 'primeng/sidebar';
 import { SideNavComponent } from '../side-nav/side-nav.component';
+import { AdminHeaderComponent } from '../admin-header/admin-header.component';
+import { RestrauntProfileComponent } from './restraunt-profile/restraunt-profile.component';
 
 
 @NgModule({
   declarations: [
     RestrauntComponent,
-    SideNavComponent
+    SideNavComponent,
+    AdminHeaderComponent
   ],
   imports: [
     CommonModule,

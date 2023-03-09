@@ -7,6 +7,7 @@ import { ButtonModule } from 'primeng/button';
 import {MenuModule} from 'primeng/menu';
 import {MenuItem} from 'primeng/api';
 import {MegaMenuItem} from 'primeng/api';
+import { AdminHeaderComponent } from './admin-header/admin-header.component';
 
 @NgModule({
   declarations: [
