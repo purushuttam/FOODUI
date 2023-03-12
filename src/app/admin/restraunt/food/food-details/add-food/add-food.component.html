@@ -1,1 +1,49 @@
-<p>add-food works!</p>
+<p-card>
+  <p-toast position="top-right"></p-toast>
+  <div class="form">
+    <form class="form-field" #foodForm="ngForm" action="">
+      <div class="form-field">
+        <label class="label" for="float-input">Food Category</label>
+        <p-dropdown class="input" [options]="foodCategoryList" [(ngModel)]="foodDetails.food_category_id" name="food_category_id"
+          placeholder="Select Food Category" optionLabel="food_category_name" [showClear]="true"
+          optionValue="food_category_id"></p-dropdown>
+      </div>
+      <div class="form-field">
+        <label class="label" for="float-input">Food Name</label>
+        <input class="input" id="float-input" type="text" pInputText [(ngModel)]="foodDetails.food_name" name="food_name">
+      </div>
+      <div class="form-field">
+        <label class="label" for="float-input">Description</label>
+        <textarea class="input" [rows]="5" pInputTextarea [(ngModel)]="foodDetails.description" name="description"
+          [autoResize]="true"></textarea>
+      </div>
+      <div class="form-field">
+        <label class="label" for="float-input">Food Type</label>
+        <span class="input" *ngFor="let foodType of foodTypes" >
+          <p-radioButton [inputId]="foodType.key" name="foodType.name" [value]="foodType.key" [(ngModel)]="foodDetails.food_type"
+          ></p-radioButton>
+          <label [for]="foodType.key">{{foodType.name}}</label>
+        </span>
+      </div>
+      <div class="form-field">
+        <label class="label" for="float-input">Image</label>
+        <input class="input" id="float-input" type="text" pInputText [(ngModel)]="foodDetails.image" name="image">
+      </div>
+      <div class="form-field">
+        <label class="label" for="float-input">Price</label>
+        <input class="input" id="float-input" type="text" pInputText [(ngModel)]="foodDetails.price" name="price">
+      </div>
+      <div class="form-field">
+        <label class="label" for="float-input">Discount</label>
+        <input class="input" id="float-input" type="text" pInputText [(ngModel)]="foodDetails.discount" name="discount">
+      </div>
+      <div class="form-field">
+        <label class="label" for="float-input">Is Active</label>
+        <p-checkbox class="input" [(ngModel)]="foodDetails.is_active" [binary]="true" name="is_active"></p-checkbox>
+      </div>
+      <div class="form-field">
+        <p-button class="p-float-label form-input" label="Save" (click)="onSubmit()"></p-button>
+      </div>
+    </form>
+  </div>
+</p-card>

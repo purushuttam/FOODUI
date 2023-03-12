@@ -9,6 +9,10 @@ import { BrowserAnimationsModule, ɵBrowserAnimationBuilder } from '@angular/pla
 import { BrowserModule } from '@angular/platform-browser';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import {EditorModule} from 'primeng/editor';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import { CardModule } from 'primeng/card';
+
 var routes:Routes = [
   {
     path:'',
@@ -27,6 +31,9 @@ var routes:Routes = [
     InputTextModule,
     FormsModule,
     ToastModule,
+    InputTextareaModule,
+    CardModule,
+    // EditorModule,
     RouterModule.forChild(routes)
   ]
 })

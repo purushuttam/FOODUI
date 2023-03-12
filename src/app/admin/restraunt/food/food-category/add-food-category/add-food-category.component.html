@@ -1,32 +1,25 @@
-<p-toast position="top-right"></p-toast>
-<div class="form">
-  <form action="" #myForm="ngForm">
-    <div>
-      <span class="p-float-label form-input">
-        <input id="float-input" type="text" pInputText [(ngModel)]="foodCategory.food_category_name"
+<p-card>
+  <p-toast position="top-right"></p-toast>
+  <div class="form">
+    <form action="" #myForm="ngForm">
+      <div class="form-fields">
+        <label class="label" for="float-input">Name</label>
+        <input class="input" id="float-input" type="text" pInputText [(ngModel)]="foodCategory.food_category_name"
           name="food_category_name">
-        <label for="float-input">Name</label>
-      </span>
-      <span class="p-float-label form-input">
-        <input id="float-input" type="text" pInputText [(ngModel)]="foodCategory.description" name="description">
-        <label for="float-input">Description</label>
-      </span>
-      <span class="p-float-label form-input">
-        <input id="float-input" type="text" pInputText [(ngModel)]="foodCategory.location" name="location">
-        <label for="float-input">Location</label>
-      </span>
-      <span>
+      </div>
+      <div class="form-fields">
+        <label class="label" for="float-input">Description</label>
+        <textarea class="input" [rows]="5" pInputTextarea [(ngModel)]="foodCategory.description" name="description"
+          [autoResize]="true"></textarea>
+      </div>
+      <div class="form-fields">
+        <label class="label" for="float-input">Location</label>
+        <input class="input" id="float-input" type="text" pInputText [(ngModel)]="foodCategory.location"
+          name="location">
+      </div>
+      <div class="form-fields">
         <p-button class="p-float-label form-input" label="Save" (click)="onSubmit()"></p-button>
-      </span>
-    </div>
-    <!-- <div>
-      <label for="name"></label>
-      <input type="text" placeholder="description" pInputText [(ngModel)]="foodCategory.description"
-        name="description" />
-    </div>
-    <div>
-      <label for="name"></label>
-      <input type="text" placeholder="location" pInputText [(ngModel)]="foodCategory.location" name="location" />
-    </div> -->
-  </form>
-</div>
+      </div>
+    </form>
+  </div>
+</p-card>

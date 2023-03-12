@@ -17,6 +17,7 @@ export interface FoodDetails {
   reastraunt_id: string;
   food_name: string;
   description: string;
+  food_type:string;
   image: string;
   price: string;
   discount: string;

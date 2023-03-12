@@ -4,6 +4,8 @@ import { LoginComponent } from './login.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule,Routes } from '@angular/router';
 import { InputTextModule } from 'primeng/inputtext';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ProgressBarModule } from 'primeng/progressbar';
 
 var routes: Routes = [
   {
@@ -21,6 +23,8 @@ var routes: Routes = [
     CommonModule,
     InputTextModule,
     FormsModule,
+    ProgressSpinnerModule,
+    ProgressBarModule,
     RouterModule.forChild(routes)
   ]
 })

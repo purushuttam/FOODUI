@@ -13,9 +13,15 @@
       <span class="sub-button">
         <button class="btn btn-primary" (click)="onSubmit()" >Login</button>
       </span>
+
       <span class="sub-button">
         <button class="btn btn-primary" [routerLink]="['/admin/account/signup']" >Sign Up</button>
       </span>
+      <div>
+        <!-- <p-progressSpinner></p-progressSpinner> -->
+        <br>
+        <p-progressBar mode="indeterminate" *ngIf="loading"></p-progressBar>
+      </div>
     </form>
   </div>
 </div>

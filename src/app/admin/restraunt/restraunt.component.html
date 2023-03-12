@@ -1,12 +1,57 @@
-
-<table>
+<!-- <table>
   <tr>
     <td class="side-nav"></td>
     <td class="content-sidenav"></td>
   </tr>
 </table>
-<app-admin-header></app-admin-header>
 <ul class="ml-auto d-flex list-unstyled">
-  <li class="side_nav"><app-side-nav></app-side-nav></li>
-  <li class="res-content"><router-outlet></router-outlet></li>
-</ul>
+  <li class="side_nav"></li>
+  <li class="res-content"></li>
+</ul> -->
+<!-- <p-splitter [style]="{'height': '300px'}" [panelSizes]="[20,80]" [minSizes]="[10,0]" styleClass="mb-5">
+  <ng-template pTemplate>
+    <div class="col flex align-items-center justify-content-center">
+
+    </div>
+  </ng-template>
+  <ng-template pTemplate>
+    <p-splitter layout="vertical" [panelSizes]="[15,85]">
+      <ng-template pTemplate>
+        <div class="col flex align-items-center justify-content-center">
+
+        </div>
+      </ng-template>
+      <ng-template pTemplate>
+        <div class="col flex align-items-center justify-content-center">
+
+        </div>
+      </ng-template>
+    </p-splitter>
+  </ng-template>
+</p-splitter> -->
+<p-splitter  [panelSizes]="[14,86]" [minSizes]="[10,0]" styleClass="mb-5">
+  <ng-template pTemplate>
+    <div class="col flex align-items-center justify-content-center">
+      <app-side-nav></app-side-nav>
+    </div>
+  </ng-template>
+  <ng-template pTemplate>
+    <p-splitter layout="vertical" [panelSizes]="[14,85]">
+      <ng-template pTemplate>
+        <div class="col flex align-items-center justify-content-center">
+          <app-admin-header></app-admin-header>
+        </div>
+      </ng-template>
+      <ng-template pTemplate>
+        <div class="col flex align-items-center justify-content-center">
+          <p-scrollPanel [style]="{width: '100%', height: '700px'}">
+            <router-outlet></router-outlet>
+        </p-scrollPanel>
+        </div>
+      </ng-template>
+    </p-splitter>
+  </ng-template>
+</p-splitter>
+<!-- <p-card>
+  Content
+</p-card> -->

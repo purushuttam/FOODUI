@@ -10,41 +10,47 @@ import { environment } from 'src/environment/environment';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
   apiUrl = environment.baseApiUrl;
-  user:UserLogin={username:'',password:''}
-  constructor( private http:HttpClient,
-    private router:Router,
+  user: UserLogin = { username: '', password: '' };
+  loading: boolean;
+  constructor(
+    private http: HttpClient,
+    private router: Router,
     private AuthService: AuthServiceService,
-    private cookieService:CookieService){
-    console.log('Loging Clicked')
+    private cookieService: CookieService
+  ) {
+    console.log('Loging Clicked');
+    this.loading = false;
   }
   // response:Response
-  responseData:any
+  responseData: any;
   onSubmit() {
+    this.loading = true;
     console.log(this.user);
     this.AuthService.Login(this.user).subscribe({
-      next: (response:Response) => {
+      next: (response: Response) => {
         console.log(response);
-        if(response.resp){
-          localStorage.setItem('token',response.respObj);
-          localStorage.setItem('refreshToken',response.respMsg);
-          this.cookieService.set('token',response.respObj);
-          this.cookieService.set('refreshToken',response.respMsg);
-          console.log(response.respObj)
-        this.router.navigate(['admin/restraunt'])
-        }
-        else{
+        if (response.resp) {
+          localStorage.setItem('token', response.respObj);
+          localStorage.setItem('refreshToken', response.respMsg);
+          this.cookieService.set('token', response.respObj);
+          this.cookieService.set('refreshToken', response.respMsg);
+          console.log(response.respObj);
+          this.router.navigate(['admin/restraunt']);
+        } else {
           alert(response.respMsg);
+          this.loading = false;
         }
       },
-      error: response => {
+      error: (response) => {
         alert('Wrong Credentials');
-        console.log(response)
+        this.loading = false;
+        console.log(response);
         // this.router.navigate(['admin/account/signup'])
-      }
-    })
+      },
+    });
   }
 }

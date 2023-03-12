@@ -1,7 +1,9 @@
-.form-input
-{
-  margin: 25px;
+.form-fields{
+  margin: 5px;
 }
-.form{
-  border: 2px solid black;
+.label{
+  width: 200px;
+}
+.input{
+  width: 600px;
 }

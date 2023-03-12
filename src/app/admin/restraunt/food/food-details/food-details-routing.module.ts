@@ -11,7 +11,7 @@ var routes:Routes = [
     loadChildren: () => import('./food-list/food-list.module').then(m => m.FoodListModule)
   },
   {
-    path:'update',
+    path:'update/:id',
     loadChildren: () => import('./update-food/update-food.module').then(m => m.UpdateFoodModule)
   }
 ]

@@ -14,6 +14,10 @@ export class SideNavComponent {
     ) {
       this.items = [
         {
+          label:'Dasboard',
+          routerLink:['dashboard']
+        },
+        {
             label: 'Food',
             items: [{
                     label: 'Food Category',

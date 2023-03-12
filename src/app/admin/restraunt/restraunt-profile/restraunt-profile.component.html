@@ -1,89 +1,93 @@
-<!-- <p-steps [model]="items" [readonly]="true"></p-steps> -->
+
 <p-toast></p-toast>
 <p-card>
-  <form [formGroup]="restrauntForm" (ngSubmit)="UpdateRestrauntProfile(restrauntForm)">
+  <form [formGroup]="restrauntForm" (ngSubmit)="UpdateRestrauntProfile(restrauntForm.value)">
     <div class="form-fields">
-      <label class="label" for="name">Name</label>
-      <input class="input" type="text" pInputText formControlName="name" name="name" placeholder="Restraunt Name">
+      <label class="label" for="restraunt_name">Name</label>
+      <input class="input" [(ngModel)]="restrauntProfile.restraunt_name"
+      type="text"
+      pInputText
+      formControlName="restraunt_name"
+      name="restraunt_name"
+      placeholder="Restraunt Name">
+      <small *ngIf="restrauntForm.value.restrauntForm==''">Please Enter Name</small>
     </div>
     <div class="form-fields">
       <label class="label" for="latitute">Latititude</label>
-      <input class="input" type="text" pInputText pTooltip="latitute" formControlName="latitute" name="latitute"
+      <input class="input" type="text" [(ngModel)]="restrauntProfile.latitute"
+      pInputText pTooltip="latitute" formControlName="latitute" name="latitute"
         placeholder="latitute">
     </div>
     <div class="form-fields">
       <label class="label" for="longitute">Longitude</label>
-      <input class="input" type="text" pInputText pTooltip="longitute" formControlName="longitute" name="longitute"
+      <input class="input" type="text" [(ngModel)]="restrauntProfile.longitute"
+      pInputText pTooltip="longitute" formControlName="longitute" name="longitute"
         placeholder="longitute">
     </div>
     <div class="form-fields">
       <label class="label" for="country_code">Country</label>
-      <p-dropdown class="input" [options]="countries" formControlName="country_code" name="country_code"
-        placeholder="Select a City" optionLabel="name" [showClear]="true"></p-dropdown>
+      <p-dropdown class="input" [options]="countries" [(ngModel)]="restrauntProfile.country_code"
+       formControlName="country_code" name="country_code"
+        placeholder="Select a Country" optionLabel="name" [showClear]="true" optionValue="iso2"
+        [(ngModel)]="countrySelected" (ngModelChange)="onCountrySelected($event)"></p-dropdown>
     </div>
     <div class="form-fields">
       <label class="label" for="state_code">State</label>
-      <p-dropdown class="input" [options]="states" formControlName="state_code" name="state_code"
-        placeholder="Select a City" optionLabel="name" [showClear]="true"
-        (onClick)="OnCountrySelect(restrauntForm.value.country_code)"></p-dropdown>
+      <p-dropdown class="input" [options]="states" [(ngModel)]="restrauntProfile.state_code"
+      formControlName="state_code" name="state_code"
+        placeholder="Select a State" optionLabel="name" [showClear]="true" optionValue="state_code"
+        [(ngModel)]="selectedState" (ngModelChange)="onStateSelected()"></p-dropdown>
     </div>
     <div class="form-fields">
       <label class="label" for="city_code">City</label>
-      <p-dropdown class="input" [options]="cities" formControlName="city_code" name="country_code"
-        placeholder="Select a City" optionLabel="name" [showClear]="true"
-        (onClick)="OnSelectState(restrauntForm.value.state_code)"></p-dropdown>
+      <p-dropdown class="input" [options]="cities" [(ngModel)]="restrauntProfile.city_code"
+      formControlName="city_code" name="country_code"
+        placeholder="Select a City" optionLabel="name" [showClear]="true" optionValue="name"></p-dropdown>
     </div>
     <div class="form-fields">
       <label class="label" for="address">Address</label>
-      <input class="input" type="text" pInputText pTooltip="address" formControlName="address" name="address"
+      <input class="input" type="text" [(ngModel)]="restrauntProfile.address"
+       pInputText pTooltip="address" formControlName="address" name="address"
         placeholder="address">
     </div>
     <div class="form-fields">
-      <label class="label" for="city_code">City Name</label>
-      <input class="input" type="text" pInputText pTooltip="city_code" formControlName="city_code" name="city_code"
-        placeholder="city_code">
-    </div>
-    <div class="form-fields">
-      <label class="label" for="state_code">State Name</label>
-      <input class="input" type="text" pInputText pTooltip="state_code" formControlName="state_code" name="state_code"
-        placeholder="state_code">
-    </div>
-    <div class="form-fields">
-      <label class="label" for="country_code">Country Name</label>
-      <input class="input" type="text" pInputText pTooltip="country_code" formControlName="country_code"
-        name="country_code" placeholder="country_code">
-    </div>
-    <div class="form-fields">
       <label class="label" for="mobile_no">Mobile No</label>
-      <input class="input" type="text" pInputText pTooltip="mobile_no" formControlName="mobile_no" name="mobile_no"
+      <input class="input" type="text" [(ngModel)]="restrauntProfile.mobile_no"
+      pInputText pTooltip="mobile_no" formControlName="mobile_no" name="mobile_no"
         placeholder="mobile_no">
     </div>
     <div class="form-fields">
       <label class="label" for="email_id">Email</label>
-      <input class="input" type="text" pInputText pTooltip="email_id" formControlName="email_id" name="email_id"
+      <input class="input" type="text" [(ngModel)]="restrauntProfile.email_id"
+      pInputText pTooltip="email_id" formControlName="email_id" name="email_id"
         placeholder="email_id">
     </div>
     <div class="form-fields">
       <label class="label" for="open_time">Open time</label>
-      <p-calendar class="input" formControlName="open_time" name="open_time" [timeOnly]="true"
+      <p-calendar class="input"
+      formControlName="open_time" name="open_time" [timeOnly]="true"
         inputId="timeonly"></p-calendar>
     </div>
     <div class="form-fields">
       <label class="label" for="close_time">Close Time</label>
-      <p-calendar class="input" formControlName="close_time" name="close_time" [timeOnly]="true"
+      <p-calendar class="input"
+      formControlName="close_time" name="close_time" [timeOnly]="true"
         inputId="timeonly"></p-calendar>
     </div>
-    <div formArrayName="restraunt_photos" class="border border-light p-2">
-      <div *ngFor="let item of restraunt_photos.controls;let i=index" [formGroupName]="i" class="row">
-        <input class="input" type="text" pInputText pTooltip="image" formControlName="image" name="image"
+    <div formArrayName="restraunt_photos">
+      <div class="form-fields" *ngFor="let item of restraunt_photos.controls;let i=index" [formGroupName]="i">
+        <label class="label" for="close_time">image</label>
+        <input class="input" type="text" [(ngModel)]="restrauntProfile.restraunt_photos[i].image"
+        pInputText pTooltip="image" formControlName="image" name="image"
           placeholder="image">
+        <button pButton pRipple type="button" icon="pi pi-minus" class="p-button-danger" (click)="RemoveImage(i)"></button>
       </div>
     </div>
-    <a class="btn btn-outline-success col-2" color="primary" (click)="AddImage()">
-      (+)</a>
-
-    <div>
-      <button p-button></button>
+    <div class="form-fields" >
+      <button pButton pRipple type="button" icon="pi pi-plus" (click)="AddImage()"></button>
+    </div>
+    <div class="form-fields" >
+      <button pButton pRipple type="submit" label="Submit"></button>
     </div>
   </form>
 </p-card>

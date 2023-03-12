@@ -1,1 +1,38 @@
-<p>food-list works!</p>
+<p-toast position="top-right"></p-toast>
+<div class="card">
+  <!-- <h5>Implicit Pagination</h5> -->
+  <p-table [value]="foodDetails" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" [tableStyle]="{'min-width': '50rem'}"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+      <ng-template pTemplate="header">
+          <tr>
+              <th style="width:25%">Id</th>
+              <th style="width:25%">Food Category</th>
+              <th style="width:25%">Name</th>
+              <th style="width:25%">Price</th>
+              <th style="width:25%">Discount</th>
+              <th style="width:25%">Status</th>
+              <th class="inner"[width]="280">Actions</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-food>
+          <tr>
+              <td>{{food.food_detail_id}}</td>
+              <td>{{food.food_category_id}}</td>
+              <td>{{food.food_name}}</td>
+              <td>{{food.price}}</td>
+              <td>{{food.discount}}</td>
+              <td>{{food.is_active}}</td>
+              <td id="outer" [width]="280">
+                <p-button class="p-button-danger" type="button" [routerLink]="['/admin/restraunt/food/food-details/update',food.food_detail_id]">Update</p-button>
+                <!-- <button pButton pRipple type="button" (click)="Delete(category.food_category_id)" class="p-button-danger">Delete</button> -->
+              </td>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="paginatorleft">
+          <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+      </ng-template>
+      <ng-template pTemplate="paginatorright">
+          <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+      </ng-template>
+  </p-table>
+</div>

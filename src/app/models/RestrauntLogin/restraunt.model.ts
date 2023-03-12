@@ -11,14 +11,14 @@ export interface RestrauntMaster {
     country_code: string;
     mobile_no: string;
     email_id: string;
-    open_time: Date;
-    close_time: Date;
+    open_time: string;
+    close_time: string;
     is_active: boolean;
     created_on: string;
     created_by: string;
     updated_on: string;
     updated_by: string;
-    restraunt_phots: RestrauntPhoto[];
+    restraunt_photos: RestrauntPhoto[];
 }
 export interface RestrauntPhoto {
   restraunt_photo_id: string;

@@ -25,6 +25,7 @@ export class AddFoodCategoryComponent {
     updated_by:'',
     updated_on:'2023-02-28T11:12:28.406'
   }
+text2: any;
   constructor(
     private primengConfig: PrimeNGConfig,
     private foodCategoryService:FoodCategoryServiceService,
