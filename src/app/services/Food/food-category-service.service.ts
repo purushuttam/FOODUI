@@ -6,28 +6,39 @@ import { FoodCategory } from 'src/app/models/food/food.model';
 import { environment } from 'src/environment/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FoodCategoryServiceService {
-
-  baseurl = environment.baseApiUrl
-  constructor(private http:HttpClient) {
-    console.log('service started')
+  baseurl = environment.baseApiUrl;
+  constructor(private http: HttpClient) {
+    console.log('service started');
   }
 
-  AddFoodCategory(foodCategory:FoodCategory) : Observable<any> {
-    return this.http.post<any>(this.baseurl + '/FoodCategory/SaveFoodCategory',foodCategory)
+  AddFoodCategory(foodCategory: FoodCategory): Observable<any> {
+    return this.http.post<any>(
+      this.baseurl + '/FoodCategory/SaveFoodCategory',
+      foodCategory
+    );
   }
-  GetAllFoodCategory() : Observable<Response> {
-    return this.http.get<Response>(this.baseurl + '/FoodCategory/GetAllFoodCategroy');
+  GetAllFoodCategory(): Observable<Response> {
+    return this.http.get<Response>(
+      this.baseurl + '/FoodCategory/GetAllFoodCategroy'
+    );
   }
-  GetFoodCategoryById(id:string) : Observable<FoodCategory> {
-    return this.http.get<FoodCategory>(this.baseurl + '/FoodCategory/GetFoodCategroyById/' + id);
+  GetFoodCategoryById(id: string): Observable<FoodCategory> {
+    return this.http.get<FoodCategory>(
+      this.baseurl + '/FoodCategory/GetFoodCategroyById/' + id
+    );
   }
-  DeleteFoodCategory(Id:string) : Observable<any> {
-    return this.http.delete<any>(this.baseurl + '/FoodCategory/DeleteFoodCategory/' + Id)
+  DeleteFoodCategory(Id: string): Observable<any> {
+    return this.http.delete<any>(
+      this.baseurl + '/FoodCategory/DeleteFoodCategory/' + Id
+    );
   }
-  UpdateFoodCategory(foodCategory:FoodCategory) : Observable<any> {
-    return this.http.post<any>(this.baseurl + '/FoodCategory/UpdateFoodCategory',foodCategory);
+  UpdateFoodCategory(foodCategory: FoodCategory): Observable<any> {
+    return this.http.post<any>(
+      this.baseurl + '/FoodCategory/UpdateFoodCategory',
+      foodCategory
+    );
   }
 }

@@ -1,1 +1,21 @@
-<p>restraunt-list works!</p>
+<!-- <p>restraunt-list works!</p> -->
+<div class="row">
+  <div class="col" *ngFor="let restraunt of restrauntList">
+    <div class="card-container">
+      <a class="card" [routerLink]="['/details/restraunt-food/food-list']"
+        [queryParams]="{ restraunt_id: restraunt.restraunt_id }">
+        <p-card>
+          <ng-template pTemplate="content">
+            <p-image src="https://primefaces.org/cdn/primeng/images/galleria/galleria1.jpg" alt="Image"
+              width="250"></p-image>
+
+          </ng-template>
+          <ng-template pTemplate="footer">
+            {{restraunt.restraunt_name}}
+            | Rating 3
+          </ng-template>
+        </p-card>
+      </a>
+    </div>
+  </div>
+</div>

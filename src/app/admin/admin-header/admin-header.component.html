@@ -1,8 +1,18 @@
-<nav class="navbar navbar-light bg-light">
+<!-- <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="#">
     <img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
   </a>
-  <div class="nav-item p-2">
-    <a href="" style="text-decoration: none;">Profile</a>
-  </div>
-</nav>
+
+</nav> -->
+<p-menubar >
+  <span class="name" >{{restrauntMaster}}</span>
+  <p-dialog header="Confirm" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+    [draggable]="false" [resizable]="false">
+    <h4>Are you sure want to Logout</h4>
+    <ng-template pTemplate="footer">
+      <p-button icon="pi pi-check" (click)="ConfirmLogout()" label="Yes" class="p-button-text"></p-button>
+      <p-button icon="pi pi-times" (click)="displayModal=false" label="No"></p-button>
+    </ng-template>
+  </p-dialog>
+  <p-button icon="pi pi-power-off" (click)="showModalDialog()" label="Logout"></p-button>
+</p-menubar>

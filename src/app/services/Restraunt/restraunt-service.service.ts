@@ -1,32 +1,49 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environment/environment'
+import { environment } from 'src/environment/environment';
 import { Observable } from 'rxjs';
 import { RestrauntMaster } from 'src/app/models/RestrauntLogin/restraunt.model';
-import { UpdateStatus } from 'src/app/models/comman/comman.model';
+import { Response, UpdateStatus } from 'src/app/models/comman/comman.model';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RestrauntServiceService {
-
-  baseurl = environment.baseApiUrl
-  constructor(private http:HttpClient) {
-    console.log('service started')
+  baseurl = environment.baseApiUrl;
+  constructor(private http: HttpClient) {
+    console.log('service started');
   }
 
-  GetAllRestrauntMaster() : Observable<any> {
-    return this.http.get<Response>(this.baseurl + '/RestrauntMaster/GetAllRestrauntMaster');
+  GetAllRestrauntByCityCode(city_code: string): Observable<any> {
+    return this.http.get<Response>(
+      this.baseurl + '/RestrauntMaster/GetAllRestrauntByCityCode/' + city_code
+    );
   }
-  GetRestrauntMasterById() : Observable<any> {
-    return this.http.get<Response>(this.baseurl + '/RestrauntMaster/GetRestrauntMasterById');
+  GetAllRestrauntMaster(): Observable<any> {
+    return this.http.get<Response>(
+      this.baseurl + '/RestrauntMaster/GetAllRestrauntMaster'
+    );
   }
-  SaveRestrauntMaster(Restraunt: RestrauntMaster) : Observable<any> {
-    return this.http.post<Response>(this.baseurl + '/RestrauntMaster/SaveRestrauntMaster',Restraunt);
+  GetRestrauntMasterById(): Observable<any> {
+    return this.http.get<Response>(
+      this.baseurl + '/RestrauntMaster/GetRestrauntMasterById'
+    );
   }
-  UpdateRestrauntMaster(Restraunt: RestrauntMaster) : Observable<any> {
-    return this.http.post<Response>(this.baseurl + '/RestrauntMaster/UpdateRestrauntMaster',Restraunt);
+  SaveRestrauntMaster(Restraunt: RestrauntMaster): Observable<any> {
+    return this.http.post<Response>(
+      this.baseurl + '/RestrauntMaster/SaveRestrauntMaster',
+      Restraunt
+    );
   }
-  SaveStatus(status: UpdateStatus) : Observable<any> {
-    return this.http.post<Response>(this.baseurl + '/RestrauntMaster/SaveStatus',status);
+  UpdateRestrauntMaster(Restraunt: RestrauntMaster): Observable<any> {
+    return this.http.post<Response>(
+      this.baseurl + '/RestrauntMaster/UpdateRestrauntMaster',
+      Restraunt
+    );
+  }
+  SaveStatus(status: UpdateStatus): Observable<any> {
+    return this.http.post<Response>(
+      this.baseurl + '/RestrauntMaster/SaveStatus',
+      status
+    );
   }
 }

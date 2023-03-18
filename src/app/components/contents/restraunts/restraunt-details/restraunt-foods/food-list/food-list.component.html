@@ -1,1 +1,20 @@
-<p>food-list works!</p>
+<div>
+  <h2>Restraunt Name : {{restraunt_id}}</h2>
+</div>
+
+<div *ngFor="let food of foodList">
+  <p-card class="card">
+    <ng-template pTemplate="title">
+      {{ food.food_name }}
+    </ng-template>
+    <ng-template pTemplate="content">
+      <p-image class="img" src={{food.image}} alt="Image" width="130" height="130" [preview]="true"></p-image>
+      <div class="card-content">
+        <p>Price: {{ food.price }}</p>
+        <div class="add-to-cart-container">
+          <button pButton type="button" label="Add to Cart" icon="pi pi-shopping-cart" (click)="addToCart(food)"></button>
+        </div>
+      </div>
+    </ng-template>
+  </p-card>
+</div>

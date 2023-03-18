@@ -49,6 +49,10 @@ export class SideNavComponent {
         {
             label: 'Profile',
             routerLink:['profile']
+        },
+        {
+          label: 'Logout',
+          
         }
     ];
     }

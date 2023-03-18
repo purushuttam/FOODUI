@@ -6,28 +6,44 @@ import { FoodDetails } from 'src/app/models/food/food.model';
 import { Response } from 'src/app/models/comman/comman.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FoodDetailsService {
-
-  baseurl = environment.baseApiUrl
-  constructor(private http:HttpClient) {
-    console.log('service started')
+  baseurl = environment.baseApiUrl;
+  constructor(private http: HttpClient) {
+    console.log('service started');
   }
 
-  GetAllFoodDetailsByRestrauntId() : Observable<any> {
-    return this.http.get<Response>(this.baseurl + '/FoodDetail/GetAllFoodDetailsByRestrauntId')
+  GetAllFoodDetailsByRestrauntId(): Observable<any> {
+    return this.http.get<Response>(
+      this.baseurl + '/FoodDetail/GetAllFoodDetailsByRestrauntId'
+    );
   }
-  GetAllFoodDetails() : Observable<any> {
-    return this.http.get<Response>(this.baseurl + '/FoodDetail/GetAllFoodDetails')
+  GetAllFoodDetailsByRestrauntIdB2C(id: string): Observable<any> {
+    return this.http.get<Response>(
+      this.baseurl + '/FoodDetail/GetAllFoodDetailsByRestrauntIdB2C/' + id
+    );
   }
-  GetFoodDetail(id:string) : Observable<any> {
-    return this.http.get<Response>(this.baseurl + '/FoodDetail/GetFoodDetail/' + id)
+  GetAllFoodDetails(): Observable<any> {
+    return this.http.get<Response>(
+      this.baseurl + '/FoodDetail/GetAllFoodDetails'
+    );
   }
-  SaveFoodDetails(foodDetail:FoodDetails) : Observable<any> {
-    return this.http.post<Response>(this.baseurl + '/FoodDetail/SaveFoodDetails',foodDetail)
+  GetFoodDetail(id: string): Observable<any> {
+    return this.http.get<Response>(
+      this.baseurl + '/FoodDetail/GetFoodDetail/' + id
+    );
   }
-  UpdateFoodDetails(foodDetail:FoodDetails) : Observable<any> {
-    return this.http.post<Response>(this.baseurl + '/FoodDetail/UpdateFoodDetails',foodDetail)
+  SaveFoodDetails(foodDetail: FoodDetails): Observable<any> {
+    return this.http.post<Response>(
+      this.baseurl + '/FoodDetail/SaveFoodDetails',
+      foodDetail
+    );
+  }
+  UpdateFoodDetails(foodDetail: FoodDetails): Observable<any> {
+    return this.http.post<Response>(
+      this.baseurl + '/FoodDetail/UpdateFoodDetails',
+      foodDetail
+    );
   }
 }

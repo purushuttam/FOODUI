@@ -3,6 +3,7 @@ import { Route, Router } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
 import { UserDto } from 'src/app/models/AuthModel/user.model';
 import { AuthServiceService } from 'src/app/services/Auth/auth-service.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -12,12 +13,12 @@ import { AuthServiceService } from 'src/app/services/Auth/auth-service.service';
 export class SignupComponent {
   user:UserDto = {email:null,username:'',userType:'Customer',password:''}
 
-
   resposeData:any
   constructor(
     private primengConfig: PrimeNGConfig,
     private authservice:AuthServiceService,
-    private router:Router){
+    private router:Router,
+    private fb:FormBuilder){
     console.log("SignUp Clicked")
   }
 

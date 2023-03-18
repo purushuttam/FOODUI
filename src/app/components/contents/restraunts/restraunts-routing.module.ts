@@ -8,7 +8,7 @@ const routes: Routes = [
     loadChildren: () => import('../restraunts/restraunt-details/restraunt-details.module').then(m => m.RestrauntDetailsModule)
   },
   {
-    path:'',
+    path:'list',
     loadChildren: () => import('../restraunts/restraunt-list/restraunt-list.module').then(m => m.RestrauntListModule)
   }
 ];

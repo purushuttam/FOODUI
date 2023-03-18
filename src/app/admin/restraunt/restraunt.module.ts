@@ -14,9 +14,9 @@ import {SplitterModule} from 'primeng/splitter';
 import {PanelMenuModule} from 'primeng/panelmenu';
 import { CardModule } from 'primeng/card';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import {DialogModule} from 'primeng/dialog';
 import {ScrollPanelModule} from 'primeng/scrollpanel';
-
+import {MenubarModule} from 'primeng/menubar';
 @NgModule({
   declarations: [
     RestrauntComponent,
@@ -33,6 +33,8 @@ import {ScrollPanelModule} from 'primeng/scrollpanel';
     SplitterModule,
     PanelMenuModule,
     CardModule,
+    DialogModule,
+    MenubarModule,
     RestrauntRoutingModule
   ]
 })

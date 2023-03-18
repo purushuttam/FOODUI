@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary navbar bg-dark navbar-light"  style="background-color: #e3f2fd;">
+<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary navbar bg-dark navbar-light"  style="background-color: #e3f2fd;">
   <div class="container-fluid">
     <a class="navbar-brand mr-auto" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,4 +23,20 @@
       </ul>
     </div>
   </div>
-</nav>
+</nav> -->
+<div class="navbar">
+  <div class="navbar-logo">
+    <a href="/">Food</a>
+  </div>
+  <input class="searchbox" type="text" placeholder="Search" pInputText>
+  <div class="navbar-items">
+    <p-dropdown class="btn-login" [options]="cities" [(ngModel)]="selectedCity" name="name"
+      (ngModelChange)="OnCityChange($event)" placeholder="Select a City" optionLabel="name"
+      optionValue="name"></p-dropdown>
+    <p-button class="btn-login" label="Cart" icon="pi pi-shopping-cart" styleClass="p-button-success" badge="8"
+      badgeClass="p-badge-succes"></p-button>
+    <p-button class="btn-signup " label="Login" [routerLink]="['login']"></p-button>
+    <p-button class="btn-login" label="Signup" [routerLink]="['signup']"></p-button>
+    <p-button class="btn-login" label="Merchant" [routerLink]="['admin/account/login']"></p-button>
+  </div>
+</div>
