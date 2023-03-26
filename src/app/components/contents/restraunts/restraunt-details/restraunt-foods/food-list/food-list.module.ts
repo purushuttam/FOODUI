@@ -7,6 +7,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { ImageModule } from 'primeng/image';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 var routes: Routes =  [
   {
@@ -19,11 +21,13 @@ var routes: Routes =  [
   declarations: [
     FoodListComponent
   ],
+  providers:[MessageService],
   imports: [
     CommonModule,
     CardModule,
     ButtonModule,
     ImageModule,
+    ToastModule,
     RouterModule.forChild(routes)
   ]
 })

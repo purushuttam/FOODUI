@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SignupComponent } from './signup.component';
 import {InputTextModule} from 'primeng/inputtext';
-
+import { PanelModule } from 'primeng/panel';
 import {ButtonModule} from 'primeng/button';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { PanelMenuModule } from 'primeng/panelmenu';
+
 var routes: Routes = [
   {
     path:'',
@@ -23,6 +25,8 @@ var routes: Routes = [
     InputTextModule,
     FormsModule,
     ButtonModule,
+    ReactiveFormsModule,
+    PanelModule,
     RouterModule.forChild(routes)
   ]
 })

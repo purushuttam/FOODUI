@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Response } from 'src/app/models/comman/comman.model';
 import { Order, UpdateOrderStatus } from 'src/app/models/order/order.model';
+import { PaymentRzPay } from 'src/app/models/Payment/payment.model';
 import { environment } from 'src/environment/environment';
 
 @Injectable({
@@ -24,9 +25,9 @@ export class OrderService {
       this.baseurl + '/Orders/GetOrderDetailsByOrderId' + orderId
     );
   }
-  SaveOrder(order: Order): Observable<any> {
+  SaveOrder(orderPayment:PaymentRzPay): Observable<any> {
     return this.http.post<Response>(
-      this.baseurl + '/Orders/SaveOrder', order);
+      this.baseurl + '/Orders/SaveOrder', orderPayment);
   }
   UpdateOrder(order: Order): Observable<any> {
     return this.http.post<Response>(

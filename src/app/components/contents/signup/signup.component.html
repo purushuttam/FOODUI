@@ -1,10 +1,10 @@
 <div class="container">
   <div class="sign-form">
    <form action="" #myForm="ngForm">
-    <div class="form-outline mb-4">
+    <!-- <div class="form-outline mb-4">
       <input type="text" [(ngModel)]="user.userType" name="UserType" id="UserType" class="form-control" />
       <label class="form-label" for="UserType">UserType</label>
-    </div>
+    </div> -->
     <div class="form-outline mb-4">
       <input type="text" [(ngModel)]="user.username"  name="Username"  id="Username" class="form-control" />
       <label class="form-label" for="Username">Username</label>
@@ -23,3 +23,38 @@
    </form>
   </div>
 </div>
+<!-- <p-panel header="Sign Up" [style]="{'width': '500px'}">
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmitS()">
+    <div class="p-grid p-fluid">
+      <div class="p-col-12">
+        <p-inputText formControlName="name" name="name" placeholder="Name"></p-inputText>
+        <div *ngIf="signupForm.get('name')?.invalid && signupForm.get('name')?.touched" class="invalid-feedback">
+          Name is required
+        </div>
+      </div>
+      <div class="p-col-12">
+        <p-inputText formControlName="email" name="email" placeholder="Email"></p-inputText>
+        <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="invalid-feedback">
+          <div *ngIf="signupForm.get('email')?.errors?.['required']">Email is required</div>
+          <div *ngIf="signupForm.get('email')?.errors?.['email']">Email is invalid</div>
+        </div>
+      </div>
+      <div class="p-col-12">
+        <p-password formControlName="password" name="password" placeholder="Password"></p-password>
+        <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="invalid-feedback">
+          <div *ngIf="signupForm.get('password')?.errors?.['required']">Password is required</div>
+          <div *ngIf="signupForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters</div>
+        </div>
+      </div>
+      <div class="p-col-12">
+        <p-password formControlName="confirmPassword" name="confirmPassword" placeholder="Confirm Password"></p-password>
+        <div *ngIf="signupForm.get('confirmPassword')?.invalid && signupForm.get('confirmPassword')?.touched" class="invalid-feedback">
+          Confirm Password is required
+        </div>
+      </div>
+      <div class="p-col-12">
+        <button type="submit" [disabled]="signupForm.invalid" class="p-button p-button-primary">Sign Up</button>
+      </div>
+    </div>
+  </form>
+</p-panel> -->

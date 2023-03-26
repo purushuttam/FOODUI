@@ -15,6 +15,21 @@ export interface Order {
   created_by: string;
   updated_on: string;
   updated_by: string;
+  orderItems: OrderItem[]
+}
+export interface OrderItem {
+  order_item_id:string
+  order_id:string
+  food_category_id:string
+  order_item_name:string
+  order_item_qty:number
+  order_item_price:number
+  order_item_total_price:number
+  is_active:boolean
+  created_on:string
+  created_by:string
+  updated_on:string
+  updated_by:string
 }
 export interface OrderCancellation {
   order_cancellation_id: string;

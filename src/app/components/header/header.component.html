@@ -33,10 +33,9 @@
     <p-dropdown class="btn-login" [options]="cities" [(ngModel)]="selectedCity" name="name"
       (ngModelChange)="OnCityChange($event)" placeholder="Select a City" optionLabel="name"
       optionValue="name"></p-dropdown>
-    <p-button class="btn-login" label="Cart" icon="pi pi-shopping-cart" styleClass="p-button-success" badge="8"
-      badgeClass="p-badge-succes"></p-button>
+
     <p-button class="btn-signup " label="Login" [routerLink]="['login']"></p-button>
     <p-button class="btn-login" label="Signup" [routerLink]="['signup']"></p-button>
-    <p-button class="btn-login" label="Merchant" [routerLink]="['admin/account/login']"></p-button>
+    <p-button class="btn-login" label="Merchant" [routerLink]="['/admin/account/login']"></p-button>
   </div>
 </div>

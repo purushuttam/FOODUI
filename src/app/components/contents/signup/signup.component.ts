@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Form } from '@angular/forms';
+import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { PrimeNGConfig } from 'primeng/api';
@@ -13,27 +13,42 @@ import { AuthServiceService } from 'src/app/services/Auth/auth-service.service';
 export class SignupComponent {
 
   user:UserDto = {email:null,username:'',userType:'Customer',password:''}
-
+  signupForm: FormGroup;
 
   resposeData:any
-  constructor(
+  constructor(private formBuilder: FormBuilder,
     private primengConfig: PrimeNGConfig,
     private authservice:AuthServiceService,
     private router:Router){
+      this.signupForm = this.formBuilder.group({
+        userType:['Customer'],
+        username: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6)]],
+        confirmPassword: ['', Validators.required]
+      });
     console.log("SignUp Clicked")
   }
 
-  onSubmit(){
+  ngOnInit() {
 
-    this.authservice.SignUp(this.user).subscribe( result =>
-       {
-        if(result != null){
-          console.log(result)
-          this.resposeData = result
-          localStorage.setItem('token',this.resposeData)
-          this.router.navigate([''])
-        }
-       }
-    )
+  }
+
+  onSubmitS() {
+    if (this.signupForm.invalid) {
+      return;
+    }
+    console.log(this.signupForm.value);
+  }
+
+  onSubmit(){
+    this.authservice.SignUp(this.user).subscribe({
+      next:(Response:any) => {
+        console.log(Response);
+      },
+      error:response => {
+        console.log(response);
+      }
+     })
   }
 }
