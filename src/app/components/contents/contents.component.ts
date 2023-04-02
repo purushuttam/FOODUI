@@ -4,6 +4,7 @@ import { MenuItem } from 'primeng/api';
 import { Product } from 'src/app/models/product';
 import { AuthServiceService } from 'src/app/services/Auth/auth-service.service';
 
+import { Menu } from 'primeng/menu';
 @Component({
   selector: 'app-contents',
   templateUrl: './contents.component.html',

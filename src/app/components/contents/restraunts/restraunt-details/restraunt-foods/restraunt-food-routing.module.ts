@@ -39,6 +39,10 @@ const routes: Routes = [
   {
     path:'payment',
     loadChildren: () => import('../restraunt-foods/payment/payment.module').then(m => m.PaymentModule),
+  },
+  {
+    path:'payment-confirmation',
+    loadChildren: () => import('../restraunt-foods/payment-confirmation/payment-confirmation.module').then(m => m.PaymentConfirmationModule)
   }
 ]
 

@@ -26,7 +26,9 @@
 </nav> -->
 <div class="navbar">
   <div class="navbar-logo">
-    <a href="/">Food</a>
+    <a href="">
+      <img src="assets/logo1.jpg" alt="image logo" width="50" height="50">
+    </a>
   </div>
   <input class="searchbox" type="text" placeholder="Search" pInputText>
   <div class="navbar-items">
@@ -34,8 +36,10 @@
       (ngModelChange)="OnCityChange($event)" placeholder="Select a City" optionLabel="name"
       optionValue="name"></p-dropdown>
 
-    <p-button class="btn-signup " label="Login" [routerLink]="['login']"></p-button>
-    <p-button class="btn-login" label="Signup" [routerLink]="['signup']"></p-button>
-    <p-button class="btn-login" label="Merchant" [routerLink]="['/admin/account/login']"></p-button>
+    <p-button *ngIf="!isLoggedIn" class="btn-signup " label="Login" [routerLink]="['login']"></p-button>
+    <p-button *ngIf="!isLoggedIn" class="btn-login" label="Signup" [routerLink]="['signup']"></p-button>
+    <p-avatar #avatar *ngIf="isLoggedIn" label="Profile" styleClass="mr-2" size="large" [style]="{ 'background-color': '#2196F3', color: '#ffffff' }" shape="circle"></p-avatar>
+    <!-- <p-button *ngIf="isLoggedIn" class="btn-logout " (onClick)="ConfirmLogout()" label="Logout" [routerLink]="['']"></p-button> -->
+    <p-button *ngIf="!isLoggedIn" class="btn-login" label="Merchant" [routerLink]="['/admin/account/login']"></p-button>
   </div>
 </div>

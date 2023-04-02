@@ -1,3 +1,10 @@
+<p-toast></p-toast>
+<div class="payment-success" *ngIf="isPaymentSuccessfull">
+  <p>Payment successful!</p>
+  <i class="pi pi-check"></i>
+</div>
+
+<p-progressBar mode="indeterminate" [style]="{ height: '10px',color:'red' }"  *ngIf="isLoading"></p-progressBar>
 <div class="cart-items">
   <h2>Order Summary</h2>
   <p-table [value]="OrderItem">
@@ -18,11 +25,11 @@
       </tr>
     </ng-template>
   </p-table>
-  <div class="total-price">Total Price: {{ orderdetails.total_price }}</div>
+  <div class="total-price"><p-skeleton *ngIf="isLoading"></p-skeleton>Total Price: {{ orderdetails.total_price }}</div>
   <div class="delivery-info">
-    <div class="delivery-time">Order Id: {{ orderdetails.order_id }}</div>
-    <div class="delivery-time">Delivery Time: {{ orderdetails.delivery_by }}</div>
-    <div class="delivery-boy">Delivery Boy: {{ orderdetails.executive_id }}</div>
-    <div class="delivery-address">Delivery Address: {{ orderdetails.delivery_address }}</div>
+    <div class="delivery-time"><p-skeleton *ngIf="isLoading"></p-skeleton>Order Id: {{ orderdetails.order_id }}</div>
+    <div class="delivery-time"><p-skeleton *ngIf="isLoading"></p-skeleton>Delivery Time: {{ orderdetails.delivery_by }}</div>
+    <div class="delivery-boy"><p-skeleton *ngIf="isLoading"></p-skeleton>Delivery Boy: {{ orderdetails.executive_id }}</div>
+    <div class="delivery-address"><p-skeleton *ngIf="isLoading"></p-skeleton>Delivery Address: {{ orderdetails.delivery_address }}</div>
   </div>
 </div>

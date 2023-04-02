@@ -1,4 +1,77 @@
-.quantity .quantity-number {
-  font-size: 30px;
-  padding: 15px;
+.table {
+  border: 2px solid red;
+}
+.cart-items {
+  margin-bottom: 10px;
+}
+
+.cart-items h2 {
+  margin-bottom: 10px;
+}
+
+.total-price {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+}
+
+.quantity button {
+  margin: 0 5px;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* button[type="submit"],
+button[type="button"] {
+  display: inline-block;
+  padding: 5px 5px;
+  border-radius: 4px;
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+} */
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+  background-color: #3e8e41;
+}
+
+button[type="submit"] {
+  margin-right: 10px;
+}
+
+button[type="button"] {
+  background-color: #f44336;
+}
+
+button[type="button"]:hover {
+  background-color: #da190b;
+}
+
+button .pi {
+  margin-right: 5px;
 }

@@ -12,13 +12,18 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
-
-
+import { AvatarModule } from 'primeng/avatar';
+import { ProfileComponent } from './profile/profile.component';
+import { MenuItem } from 'primeng/api';
+import { Menu } from 'primeng/menu';
+import { MenuModule } from 'primeng/menu';
+import { ContextMenuModule } from 'primeng/contextmenu';
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    ContentsComponent
+    ContentsComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
@@ -26,6 +31,9 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     InputTextModule,
     ButtonModule,
+    AvatarModule,
+    MenuModule,
+    ContextMenuModule,  
     ContentRoutingModule
   ]
 })

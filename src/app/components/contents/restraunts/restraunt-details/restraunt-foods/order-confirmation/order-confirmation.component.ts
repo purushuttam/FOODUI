@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { Response } from 'src/app/models/comman/comman.model';
 import { Order, OrderItem } from 'src/app/models/order/order.model';
 import { PaymentRzPay } from 'src/app/models/Payment/payment.model';
@@ -30,7 +31,7 @@ export class OrderConfirmationComponent implements OnInit {
     updated_by: '',
     orderItems: [],
   };
-  OrderItem:OrderItem[] = [];
+  OrderItem: OrderItem[] = [];
   // OrderItem: OrderItem = {
   //   order_item_id: '',
   //   order_id: '',
@@ -49,10 +50,12 @@ export class OrderConfirmationComponent implements OnInit {
     session_id: '',
     razorpay_payment_id: '',
   };
-
+  isLoading = true;
+  isPaymentSuccessfull = false;
   constructor(
     private orderService: OrderService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private messageService: MessageService
   ) {
     this.route.queryParamMap.subscribe((params) => {
       const razorpay_payment_id = params.get('razorpay_payment_id');
@@ -77,6 +80,13 @@ export class OrderConfirmationComponent implements OnInit {
     this.orderService.SaveOrder(this.orderpayment).subscribe({
       next: (response: Response) => {
         if (response.resp) {
+          this.isLoading = false;
+          this.isPaymentSuccessfull = true;
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Payment Confirmed',
+            detail: 'Your payment was successful.',
+          });
           console.log(response);
           this.orderdetails = response.respObj;
           console.log(this.orderdetails.orderItems.values());
@@ -84,10 +94,25 @@ export class OrderConfirmationComponent implements OnInit {
           this.OrderItem = this.orderdetails.orderItems;
           console.log(this.OrderItem);
           localStorage.removeItem('session_id');
+        } else {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Payment failed',
+            detail: 'Your payment was failed.',
+          });
         }
+      },
+      error: (response) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Payment failed',
+          detail: 'Your payment was failed.',
+        });
       },
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // this.isLoading = false;
+  }
 }

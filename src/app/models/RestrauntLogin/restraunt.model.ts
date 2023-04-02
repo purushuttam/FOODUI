@@ -44,6 +44,7 @@ export interface RestrauntCredential {
 export interface RestrauntDailyLogin {
   restraunt_daily_login_id: string;
   restraunt_id: string;
+  date:string
   login_time: string;
   logout_time: string;
   total_orders: number;
@@ -53,7 +54,7 @@ export interface RestrauntDailyLogin {
   total_cancelled_orders: number;
   total_cancelled_orders_value: number;
   total_unconfirmed_orders: number;
-  rating: string;
+  rating: number;
   is_active: boolean;
   created_on: string;
   created_by: string;

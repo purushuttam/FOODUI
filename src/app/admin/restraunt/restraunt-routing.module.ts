@@ -44,7 +44,7 @@ var routes: Routes = [
           ),
       },
     ],
-    // canActivate: [RestrauntAuthGuard],
+    canActivate: [RestrauntAuthGuard],
   },
 ];
 

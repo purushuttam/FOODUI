@@ -71,6 +71,8 @@ export class CartComponent implements OnInit {
 
   ProceedPayment(): void {
     console.log(this.cart);
+    localStorage.setItem('address',this.address);
+    localStorage.setItem('mobile',this.mobile,)
     this.cart.address = this.address;
     this.cart.mobile = this.mobile;
     if (this.AuthService.isLoggedIn()) {
@@ -81,17 +83,15 @@ export class CartComponent implements OnInit {
           console.log(redirectLink.short_url);
           window.location.href = redirectLink.short_url;
         },
-        error: response => {
+        error: (response) => {
           console.log(response);
-        }
+        },
       });
     } else {
       this.router.navigate(['/login']);
     }
   }
 
-
-  address: string='';
-  mobile: string='';
-
+  address: string = localStorage.getItem('address') ?? '';
+  mobile: string = localStorage.getItem('mobile') ?? '';
 }

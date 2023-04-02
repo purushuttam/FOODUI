@@ -5,8 +5,8 @@
       currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
       <ng-template pTemplate="header">
           <tr>
-              <th style="width:25%">Id</th>
-              <th style="width:25%">Name</th>
+              <th style="width:25%">Order Id</th>
+              <th style="width:25%">Customer Email</th>
               <th style="width:25%">Description</th>
               <th style="width:25%">Status</th>
               <th style="width:25%">Updated By</th>
@@ -15,8 +15,8 @@
       </ng-template>
       <ng-template pTemplate="body" let-category>
           <tr>
-              <td>{{category.food_category_id}}</td>
-              <td>{{category.food_category_name}}</td>
+              <td>{{category.order_id}}</td>
+              <td>{{category.customer_id}}</td>
               <td>{{category.description}}</td>
               <td>{{category.is_active}}</td>
               <td>{{category.updated_by}}</td>

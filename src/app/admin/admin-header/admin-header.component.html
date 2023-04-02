@@ -4,8 +4,12 @@
   </a>
 
 </nav> -->
+
 <p-menubar >
   <span class="name" >{{restrauntMaster}}</span>
+  <button pButton pRipple label="{{stBtnLabel}}" class="{{stBtnColor}}"
+  (click)="Status()"
+  ></button>
   <p-dialog header="Confirm" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
     [draggable]="false" [resizable]="false">
     <h4>Are you sure want to Logout</h4>
