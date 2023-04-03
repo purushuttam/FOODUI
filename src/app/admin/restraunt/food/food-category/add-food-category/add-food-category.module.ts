@@ -4,7 +4,7 @@ import { AddFoodCategoryComponent } from './add-food-category.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule, ɵBrowserAnimationBuilder } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import {ToastModule} from 'primeng/toast';
@@ -34,6 +34,7 @@ var routes:Routes = [
     InputTextareaModule,
     CardModule,
     // EditorModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ]
 })

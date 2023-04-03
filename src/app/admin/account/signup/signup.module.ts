@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { SignupComponent } from './signup.component';
 import { Routes,RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 var routes: Routes = [
   {
@@ -15,9 +17,11 @@ var routes: Routes = [
   declarations: [
     SignupComponent,
   ],
+  providers:[MessageService],
   imports: [
     CommonModule,
     FormsModule,
+    ToastModule,
     RouterModule.forChild(routes)
   ]
 })

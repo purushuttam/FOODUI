@@ -1,24 +1,60 @@
 <p-card>
   <p-toast position="top-right"></p-toast>
   <div class="form">
-    <form action="" #myForm="ngForm">
+    <form action="" [formGroup]="foodCategoryForm" (ngSubmit)="onSubmit()">
       <div class="form-fields">
         <label class="label" for="float-input">Name</label>
-        <input class="input" id="float-input" type="text" pInputText [(ngModel)]="foodCategory.food_category_name"
+        <input class="input" id="float-input" type="text" pInputText formControlName="food_category_name"
           name="food_category_name">
+        <div class="validations"
+          *ngIf="foodCategoryForm.controls['food_category_name'].invalid && foodCategoryForm.controls['food_category_name'].touched || foodCategoryForm.controls['food_category_name'].dirty">
+          <div *ngIf="foodCategoryForm.controls['food_category_name'].errors?.['required']">
+            Food Category Name is required.
+          </div>
+          <div *ngIf="foodCategoryForm.controls['food_category_name'].errors?.['minlength']">
+            Food Category Name must be at least 2 characters long.
+          </div>
+          <div *ngIf="foodCategoryForm.controls['food_category_name'].errors?.['maxlength']">
+            Food Category Name cannot be more than 50 characters long.
+          </div>
+        </div>
       </div>
       <div class="form-fields">
         <label class="label" for="float-input">Description</label>
-        <textarea class="input" [rows]="5" pInputTextarea [(ngModel)]="foodCategory.description" name="description"
+        <textarea class="input" [rows]="5" pInputTextarea formControlName="description" name="description"
           [autoResize]="true"></textarea>
+          <div class="validations"
+          *ngIf="foodCategoryForm.controls['description'].invalid && foodCategoryForm.controls['description'].touched || foodCategoryForm.controls['description'].dirty">
+          <div *ngIf="foodCategoryForm.controls['description'].errors?.['required']">
+            Food Category description is required.
+          </div>
+          <div *ngIf="foodCategoryForm.controls['description'].errors?.['minlength']">
+            Food Category description must be at least 2 characters long.
+          </div>
+          <div *ngIf="foodCategoryForm.controls['description'].errors?.['maxlength']">
+            Food Category description cannot be more than 50 characters long.
+          </div>
+        </div>
       </div>
       <div class="form-fields">
         <label class="label" for="float-input">Location</label>
-        <input class="input" id="float-input" type="text" pInputText [(ngModel)]="foodCategory.location"
-          name="location">
+        <input class="input" id="float-input" type="text" pInputText formControlName="location" name="location">
+        <div class="validations"
+        *ngIf="foodCategoryForm.controls['location'].invalid && foodCategoryForm.controls['location'].touched || foodCategoryForm.controls['location'].dirty">
+        <div *ngIf="foodCategoryForm.controls['location'].errors?.['required']">
+          Food Location is required.
+        </div>
+        <div *ngIf="foodCategoryForm.controls['location'].errors?.['minlength']">
+          Food Location must be at least 2 characters long.
+        </div>
+        <div *ngIf="foodCategoryForm.controls['location'].errors?.['maxlength']">
+          Food Location cannot be more than 50 characters long.
+        </div>
+      </div>
       </div>
       <div class="form-fields">
-        <p-button class="p-float-label form-input" label="Save" (click)="onSubmit()"></p-button>
+        <p-button type="submit" [disabled]="foodCategoryForm.invalid" class="p-float-label form-input"
+          label="Save"></p-button>
       </div>
     </form>
   </div>

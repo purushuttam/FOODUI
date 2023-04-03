@@ -6,7 +6,7 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
@@ -35,6 +35,7 @@ var routes:Routes = [
     InputTextareaModule,
     CheckboxModule,
     RadioButtonModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ]
 })

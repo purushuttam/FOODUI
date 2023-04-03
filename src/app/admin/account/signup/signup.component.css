@@ -1,23 +1,67 @@
-.gradient-custom-3 {
-  /* fallback for old browsers */
-  background: #84fab0;
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
 
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+h1 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
 
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
-  }
-  .gradient-custom-4 {
-  /* fallback for old browsers */
-  background: #84fab0;
+.sign-form {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 5px;
+}
 
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+.form-outline {
+  position: relative;
+  margin-bottom: 20px;
+}
 
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
-  }
-.sign-form{
-  margin-top: 1%;
+.form-control {
+  font-size: 18px;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.form-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 18px;
+  padding: 10px;
+  transition: all 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+.form-control:focus + .form-label,
+.form-control:not(:placeholder-shown) + .form-label {
+  top: -20px;
+  left: 0;
+  color: #007bff;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  font-size: 20px;
+  padding: 10px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0069d9;
 }

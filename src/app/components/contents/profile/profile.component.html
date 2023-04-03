@@ -1,1 +1,12 @@
-<p>profile works!</p>
+<p-splitter [panelSizes]="[18, 82]" [style]="{ height: '300px' }" styleClass="mb-5">
+  <ng-template pTemplate>
+    <div class="col flex align-items-center justify-content-center">
+      <p-panelMenu [model]="items" [style]="{'width':'300px'}" [multiple]="true"></p-panelMenu>
+    </div>
+  </ng-template>
+  <ng-template pTemplate>
+    <div class="col flex align-items-center justify-content-center">
+      <router-outlet></router-outlet>
+    </div>
+  </ng-template>
+</p-splitter>

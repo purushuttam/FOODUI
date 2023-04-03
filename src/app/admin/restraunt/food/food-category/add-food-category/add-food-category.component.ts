@@ -5,7 +5,8 @@ import { Response } from 'src/app/models/comman/comman.model';
 import { FoodCategory } from 'src/app/models/food/food.model';
 import { FoodCategoryServiceService } from 'src/app/services/Food/food-category-service.service';
 import { environment } from 'src/environment/environment';
-import {MessageService} from 'primeng/api';
+import { MessageService } from 'primeng/api';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-add-food-category',
   templateUrl: './add-food-category.component.html',
@@ -14,29 +15,53 @@ import {MessageService} from 'primeng/api';
 export class AddFoodCategoryComponent {
 
   baseUrl = environment.baseApiUrl;
-  foodCategory:FoodCategory = {
-    food_category_id:'',
-    food_category_name:'',
-    description:'',
-    location:'',
-    is_active:false,
-    created_by:'',
-    created_on:'2023-02-28T11:12:28.406',
-    updated_by:'',
-    updated_on:'2023-02-28T11:12:28.406'
-  }
+  // foodCategory:FoodCategory = {
+  //   food_category_id:'',
+  //   food_category_name:'',
+  //   description:'',
+  //   location:'',
+  //   is_active:false,
+  //   created_by:'',
+  //   created_on:'2023-02-28T11:12:28.406',
+  //   updated_by:'',
+  //   updated_on:'2023-02-28T11:12:28.406'
+  // }
+  foodCategoryForm!: FormGroup;
 text2: any;
   constructor(
     private primengConfig: PrimeNGConfig,
     private foodCategoryService:FoodCategoryServiceService,
     private router:Router,
-    private messageService:MessageService){}
+    private messageService:MessageService,
+    private fb: FormBuilder){}
   ngOnInit(){
-
+    this.foodCategoryForm = this.fb.group({
+      food_category_id: [''],
+      food_category_name: ['', Validators.required],
+      description: ['', Validators.required],
+      location: ['', Validators.required],
+      is_active: [false],
+      created_by: [''],
+      created_on: ['2023-02-28T11:12:28.406'],
+      updated_by: [''],
+      updated_on: ['2023-02-28T11:12:28.406']
+    });
+    // this.foodCategoryForm.patchValue({
+    //   food_category_id: this.foodCategory.food_category_id,
+    //   food_category_name: this.foodCategory.food_category_name,
+    //   description: this.foodCategory.description,
+    //   location: this.foodCategory.location,
+    //   is_active: this.foodCategory.is_active,
+    //   created_by: this.foodCategory.created_by,
+    //   created_on: this.foodCategory.created_on,
+    //   updated_by: this.foodCategory.updated_by,
+    //   updated_on: this.foodCategory.updated_on
+    // });
   }
+
   onSubmit() {
-    console.log(this.foodCategory);
-    this.foodCategoryService.AddFoodCategory(this.foodCategory).subscribe({
+    console.log(this.foodCategoryForm.value);
+    this.foodCategoryService.AddFoodCategory(this.foodCategoryForm.value).subscribe({
       next: (response:Response) => {
         console.log(response);
         if(response.resp){

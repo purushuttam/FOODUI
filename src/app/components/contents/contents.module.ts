@@ -18,6 +18,8 @@ import { MenuItem } from 'primeng/api';
 import { Menu } from 'primeng/menu';
 import { MenuModule } from 'primeng/menu';
 import { ContextMenuModule } from 'primeng/contextmenu';
+import { SplitterModule } from 'primeng/splitter';
+import { PanelMenuModule } from 'primeng/panelmenu';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -33,7 +35,9 @@ import { ContextMenuModule } from 'primeng/contextmenu';
     ButtonModule,
     AvatarModule,
     MenuModule,
-    ContextMenuModule,  
+    ContextMenuModule,
+    SplitterModule,
+    PanelMenuModule,
     ContentRoutingModule
   ]
 })

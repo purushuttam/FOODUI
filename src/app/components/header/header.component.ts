@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   itemsCount: any;
   selectedCity: any;
   city_code: any;
-
+  @ViewChild('menu') menu: any;
   constructor(
     private AreaService: AreaService,
     private router: Router,
@@ -39,7 +39,13 @@ export class HeaderComponent implements OnInit {
       },
     });
   }
+  showMenu(event: any) {
+    // Prevent the default behavior of the button
+    event.preventDefault();
 
+    // Open the menu at the position of the button
+    this.menu.toggle(event);
+  }
   onCityChange(event: any): void {
     console.log(event.value);
   }
