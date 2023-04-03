@@ -66,7 +66,6 @@ export class UpdateFoodComponent implements OnInit{
         if(response.resp){
           this.foodCategoryList = response.respObj;
           console.log(this.foodCategoryList)
-          console.log(this.foodCategoryList)
         }
       },
       error:(response:any) => {

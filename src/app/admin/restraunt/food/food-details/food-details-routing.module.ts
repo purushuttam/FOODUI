@@ -12,7 +12,7 @@ var routes:Routes = [
   },
   {
     path:'update/:id',
-    loadChildren: () => import('./update-food/update-food.module').then(m => m.UpdateFoodModule)
+    loadChildren: () => import('./add-food/add-food.module').then(m => m.AddFoodModule)
   }
 ]
 
