@@ -33,7 +33,7 @@
     <div class="card-container">
       <a class="card" [routerLink]="['/details/restraunt-food/food-list']"
         [queryParams]="{ restraunt_id: food.food_detail_id }">
-        <p-card>
+        <p-card styleClass="color3">
           <ng-template pTemplate="content">
             <p-image src={{food.image}} alt="Image" height="250" width="350"></p-image>
 
@@ -45,7 +45,7 @@
             {{food.food_name}}
             | Rating 3
             <div class="add-to-cart-container">
-              <button pButton type="button" label="Add to Cart" icon="pi pi-shopping-cart"
+              <button class="cart-button-color" pButton type="button" label="Add to Cart" icon="pi pi-shopping-cart"
                 (click)="addToCart(food)"></button>
               <!-- <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded"></button>
               <h4>5</h4>

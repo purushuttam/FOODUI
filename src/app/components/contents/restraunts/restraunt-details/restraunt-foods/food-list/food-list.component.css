@@ -13,6 +13,12 @@ div {
   border: 1px solid #ccc;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
 }
+::ng-deep .color3 {
+  background-color: #F9F3DF !important;
+}
+::ng-deep .cart-button-color{
+  /* background-color: #F4D19B; */
+}
 .card-content {
   display: flex;
   flex-direction: column;
