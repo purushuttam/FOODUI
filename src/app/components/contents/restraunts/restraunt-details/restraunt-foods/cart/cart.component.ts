@@ -32,6 +32,7 @@ export class CartComponent implements OnInit {
           if (response.resp) {
             this.cart = response.respObj;
             this.foodItems = this.cart.food_details;
+            this.isCartEmpty = false;
           }
         },
       });
@@ -69,26 +70,32 @@ export class CartComponent implements OnInit {
       });
   }
 
+  isCartEmpty: boolean = true;
   ProceedPayment(): void {
     console.log(this.cart);
-    localStorage.setItem('address',this.address);
-    localStorage.setItem('mobile',this.mobile,)
+    localStorage.setItem('address', this.address);
+    localStorage.setItem('mobile', this.mobile);
     this.cart.address = this.address;
     this.cart.mobile = this.mobile;
-    if (this.AuthService.isLoggedIn()) {
-      this.paymentSerive.GetRazorPayPaymentLink(this.cart).subscribe({
-        next: (response: RazorPayRs) => {
-          console.log(response);
-          var redirectLink = response;
-          console.log(redirectLink.short_url);
-          window.location.href = redirectLink.short_url;
-        },
-        error: (response) => {
-          console.log(response);
-        },
-      });
+    if (this.cart.total_amount != 0 && this.cart.food_details.itemsCount <= 0) {
+      if (this.AuthService.isLoggedIn()) {
+        this.paymentSerive.GetRazorPayPaymentLink(this.cart).subscribe({
+          next: (response: RazorPayRs) => {
+            console.log(response);
+            var redirectLink = response;
+            console.log(redirectLink.short_url);
+            window.location.href = redirectLink.short_url;
+          },
+          error: (response) => {
+            console.log(response);
+          },
+        });
+      } else {
+        this.router.navigate(['/login']);
+      }
     } else {
-      this.router.navigate(['/login']);
+      console.log('cart is empty');
+      alert('cart is empty');
     }
   }
 

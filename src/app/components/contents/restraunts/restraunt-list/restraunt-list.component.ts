@@ -20,22 +20,24 @@ export class RestrauntListComponent implements OnInit {
     activeRoute.queryParams.subscribe((params) => {
       this.cityName = params['city_code'];
       console.log('cityName:' + this.cityName);
+      this.restrauntService.GetAllRestrauntByCityCode(this.cityName).subscribe({
+        next: (response: Response) => {
+          if (response.resp) {
+            this.restrauntList = response.respObj;
+            console.log(response.respObj);
+          } else {
+            this.restrauntList.pop();
+            console.log(response.respMsg);
+          }
+        },
+        error: (response) => {
+          console.log(response);
+        },
+      });
     });
   }
   ngOnInit(): void {
-    this.restrauntService.GetAllRestrauntByCityCode(this.cityName).subscribe({
-      next: (response: Response) => {
-        if (response.resp) {
-          this.restrauntList = response.respObj;
-          console.log(response.respObj);
-        } else {
-          console.log(response.respMsg);
-        }
-      },
-      error: (response) => {
-        console.log(response);
-      },
-    });
+
   }
 
   OnRestrauntSelect(restraunt_id:string): void {

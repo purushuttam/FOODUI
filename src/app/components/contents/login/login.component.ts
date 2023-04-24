@@ -33,9 +33,14 @@ export class LoginComponent{
           console.log(response.respObj);
           this.router.navigate(['/details/restraunt-food/cart']);
         }
+        else{
+          console.log('Wrong Credentials');
+          alert('Wrong Credentials');
+        }
       },
       error: (response) => {
-        console.log(response);
+        console.log('Wrong Credentials');
+        alert('Wrong Credentials');
       },
     });
   }

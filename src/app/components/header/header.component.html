@@ -36,11 +36,11 @@
       (ngModelChange)="OnCityChange($event)" placeholder="Select a City" optionLabel="name"
       optionValue="name"></p-dropdown>
 
-    <p-button *ngIf="!isLoggedIn" class="btn-signup " label="Login" [routerLink]="['login']"></p-button>
-    <p-button *ngIf="!isLoggedIn" class="btn-login" label="Signup" [routerLink]="['signup']"></p-button>
+    <p-button  class="btn-signup " label="Login" [routerLink]="['login']"></p-button>
+    <p-button  class="btn-login" label="Signup" [routerLink]="['signup']"></p-button>
     <p-avatar #avatar  (click)="showMenu($event)" *ngIf="isLoggedIn" label="Profile" styleClass="mr-2" size="large" [style]="{ 'background-color': '#2196F3', color: '#ffffff' }" shape="circle"></p-avatar>
     <!-- <p-button *ngIf="isLoggedIn" class="btn-logout " (onClick)="ConfirmLogout()" label="Logout" [routerLink]="['']"></p-button> -->
-    <p-button *ngIf="!isLoggedIn" class="btn-login" label="Merchant" [routerLink]="['/admin/account/login']"></p-button>
+    <p-button class="btn-login" label="Merchant" [routerLink]="['/admin/account/login']"></p-button>
     <!-- Add the profile button to your component template -->
 <!-- <button pButton type="button" icon="pi pi-user" (click)="showMenu($event)"></button> -->
 
