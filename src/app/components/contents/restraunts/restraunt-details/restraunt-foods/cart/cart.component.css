@@ -1,9 +1,9 @@
 .table {
   border: 2px solid red;
 }
-::ng-deep .table-color {
+/* ::ng-deep .table-color {
   background-color: #3e8e41 !important;
-}
+} */
 .cart-items {
   margin-bottom: 10px;
 }
