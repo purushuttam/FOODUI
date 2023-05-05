@@ -4,6 +4,7 @@ import { RestrauntListComponent } from './restraunt-list/restraunt-list.componen
 import { RestrauntDetailsComponent } from './restraunt-details/restraunt-details.component';
 import { RestrauntRoutingModule } from './restraunts-routing.module';
 import { RestrauntsComponent } from './restraunts.component';
+import { HomeComponent } from './home/home.component';
 
 
 

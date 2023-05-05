@@ -1,13 +1,15 @@
 <div class="container">
-  <form action=""  #myForm="ngForm">
+  <form class="login-form" action=""  #myForm="ngForm">
+    <h3 class="htxt">LOGIN FORM</h3>
     <div class="form-outline mb-4">
-      <input type="text" [(ngModel)]="user.username" name="username"  id="username" class="form-control" />
-      <label class="form-label" for="username">username</label>
+      <input type="text" [(ngModel)]="user.username" name="username"  id="username" class="form-control form-login" />
+      <label class="form-label" for="username">UserName</label>
     </div>
     <div class="form-outline mb-4">
-      <input type="password" [(ngModel)]="user.password" name="password"  id="password" class="form-control" />
-      <label class="form-label" for="password">password</label>
+      <input type="password" [(ngModel)]="user.password" name="password"  id="password" class="form-control form-login" />
+      <label class="form-label" for="password">Password</label>
     </div>
-    <button class="btn btn-primary" (click)="onSubmit()" >Login</button>
+    <button class="login-pg-button loginbtn" (click)="onSubmit()" >Login</button>
+    <button class="login-pg-button forgetbtn"  >Forget Password</button>
   </form>
 </div>

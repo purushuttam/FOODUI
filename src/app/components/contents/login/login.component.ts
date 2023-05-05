@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, Routes } from '@angular/router';
 import { environment } from 'src/environment/environment';
@@ -13,13 +13,10 @@ import { Response } from 'src/app/models/comman/comman.model';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent{
+export class LoginComponent {
   apiUrl = environment.baseApiUrl;
   user: UserLogin = { username: '', password: '' };
-  constructor(
-    private AuthService: AuthServiceService,
-    private router:Router
-  ) {
+  constructor(private AuthService: AuthServiceService, private router: Router) {
     console.log('Loging Clicked');
   }
   onSubmit() {
@@ -32,8 +29,7 @@ export class LoginComponent{
           // this.cookieService.set('refreshToken', response.respMsg);
           console.log(response.respObj);
           this.router.navigate(['/details/restraunt-food/cart']);
-        }
-        else{
+        } else {
           console.log('Wrong Credentials');
           alert('Wrong Credentials');
         }

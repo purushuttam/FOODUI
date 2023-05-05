@@ -9,12 +9,12 @@ div {
 }
 .card
 {
-  margin: 5px;
+  margin: 5px 0px;
   border: 1px solid #ccc;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow:2px 2px 2px 2px #212A3E;
 }
 ::ng-deep .color3 {
-  background-color: #F9F3DF !important;
+  background-color: #9BA4B5 !important;
 }
 ::ng-deep .cart-button-color{
   /* background-color: #F4D19B; */
@@ -37,4 +37,8 @@ div {
 }
 .cartbutton{
   margin-left: auto
+}
+.food-image
+{
+  transform: scale(1.05);
 }

@@ -7,8 +7,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #F9F3DF;
-  box-shadow: 0 0 10px #F4D19B;
+  z-index: 99;
+  top: 0;
+  position: sticky;
+  background-color: black;
+  box-shadow: 0 0 10px #212A3E;
   padding: 10px;
 }
 
@@ -25,6 +28,10 @@
 .p-dropdown {
   margin-right: 10px;
   width: 150px;
+}
+
+.nav{
+  color: white;
 }
 
 input[type="text"] {
@@ -54,3 +61,9 @@ input[type="text"] {
   /* background-color: #0062cc; */
 
 }
+
+/* ::ng-deep .dropdown{
+  background-color: aqua;
+  color: #394867 !important;
+  background: rgb(50, 50, 50);
+} */

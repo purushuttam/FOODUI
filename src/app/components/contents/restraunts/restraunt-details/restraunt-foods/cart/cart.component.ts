@@ -77,25 +77,20 @@ export class CartComponent implements OnInit {
     localStorage.setItem('mobile', this.mobile);
     this.cart.address = this.address;
     this.cart.mobile = this.mobile;
-    if (this.cart.total_amount != 0 && this.cart.food_details.itemsCount <= 0) {
-      if (this.AuthService.isLoggedIn()) {
-        this.paymentSerive.GetRazorPayPaymentLink(this.cart).subscribe({
-          next: (response: RazorPayRs) => {
-            console.log(response);
-            var redirectLink = response;
-            console.log(redirectLink.short_url);
-            window.location.href = redirectLink.short_url;
-          },
-          error: (response) => {
-            console.log(response);
-          },
-        });
-      } else {
-        this.router.navigate(['/login']);
-      }
+    if (this.AuthService.isLoggedIn()) {
+      this.paymentSerive.GetRazorPayPaymentLink(this.cart).subscribe({
+        next: (response: RazorPayRs) => {
+          console.log(response);
+          var redirectLink = response;
+          console.log(redirectLink.short_url);
+          window.location.href = redirectLink.short_url;
+        },
+        error: (response) => {
+          console.log(response);
+        },
+      });
     } else {
-      console.log('cart is empty');
-      alert('cart is empty');
+      this.router.navigate(['/login']);
     }
   }
 

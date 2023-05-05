@@ -4,6 +4,10 @@ import { RestrauntListComponent } from './restraunt-list/restraunt-list.componen
 
 const routes: Routes = [
   {
+    path:'',
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+  },
+  {
     path:'details',
     loadChildren: () => import('../restraunts/restraunt-details/restraunt-details.module').then(m => m.RestrauntDetailsModule)
   },

@@ -1,5 +1,6 @@
 .footer {
-  background-color: blueviolet;
+  background-color: #212A3E;
+  color: white;
   padding: 20px 0;
   text-align: center;
   margin-bottom: 0%;
@@ -56,12 +57,16 @@
 
 .facebook {
   background-color: #3b5998;
+  color: white;
 }
 
 .twitter {
   background-color: #00acee;
+  color: white;
 }
 
 .instagram {
   background-color: #c13584;
+  color: white;
 }
+
