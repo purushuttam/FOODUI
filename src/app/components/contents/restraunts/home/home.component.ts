@@ -14,5 +14,10 @@ export class HomeComponent implements OnInit {
       console.log(next);
     });
   }
+  OnServer(): void {
+    this.networkService.GetServerIpDetails().subscribe((next) => {
+      console.log(next);
+    });
+  }
   ngOnInit(): void {}
 }

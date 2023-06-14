@@ -17,4 +17,8 @@ export class NetworkService {
       this.baseurl + 'api/v1/connection/GetLocalIpAddress'
     );
   }
+
+  GetServerIpDetails<T>(): Observable<T> {
+    return this.http.get<T>('https://api.ipify.org/?format=json');
+  }
 }
