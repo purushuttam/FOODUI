@@ -1,10 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NetworkService } from 'src/app/services/network/network.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  constructor(private networkService: NetworkService) {}
 
+  OnNetClick(): void {
+    this.networkService.GetIpDetails().subscribe((next) => {
+      console.log(next);
+    });
+  }
+  ngOnInit(): void {}
 }
